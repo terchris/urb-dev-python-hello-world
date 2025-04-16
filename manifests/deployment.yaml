@@ -1,0 +1,49 @@
+# filename: templates/python-basic-webserver/manifests/deployment.yaml
+# Kubernetes deployment configuration for the web application
+# Template variables:
+# terchris - Will be replaced with the GitHub username from the repository URL
+# urb-dev-python-hello-world - Will be replaced with the actual repository name
+#
+# This file is automatically configured during project initialization
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: "urb-dev-python-hello-world-deployment"
+  labels:
+    app: "urb-dev-python-hello-world"
+    owner: "terchris"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: "urb-dev-python-hello-world"
+  template:
+    metadata:
+      labels:
+        app: "urb-dev-python-hello-world"
+    spec:
+      containers:
+        - name: "urb-dev-python-hello-world"
+          image: ghcr.io/terchris/urb-dev-python-hello-world:latest
+          ports:
+            - containerPort: 6000
+          # minimal resources as this is just a test            
+          resources:
+            limits:
+              cpu: "100m"
+              memory: "128Mi"
+            requests:
+              cpu: "50m"
+              memory: "64Mi"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: "urb-dev-python-hello-world-service"
+spec:
+  selector:
+    app: "urb-dev-python-hello-world"
+  ports:
+    - port: 80
+      targetPort: 6000
