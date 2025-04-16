@@ -25,7 +25,7 @@ spec:
     spec:
       containers:
         - name: "urb-dev-python-hello-world"
-          image: ghcr.io/terchris/urb-dev-python-hello-world:04b7bc5-20250416190440
+          image: ghcr.io/terchris/urb-dev-python-hello-world:8420e73-20250416191339
           ports:
             - containerPort: 3000
           # minimal resources as this is just a test            
