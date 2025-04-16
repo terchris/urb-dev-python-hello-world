@@ -27,7 +27,7 @@ spec:
         - name: "urb-dev-python-hello-world"
           image: ghcr.io/terchris/urb-dev-python-hello-world:latest
           ports:
-            - containerPort: 6000
+            - containerPort: 3000
           # minimal resources as this is just a test            
           resources:
             limits:
@@ -46,4 +46,4 @@ spec:
     app: "urb-dev-python-hello-world"
   ports:
     - port: 80
-      targetPort: 6000
+      targetPort: 3000

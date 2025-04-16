@@ -176,3 +176,5 @@ cython_debug/
 
 # Added from template python-basic-webserver
 .venv/
+
+# Added from template python-basic-webserver
